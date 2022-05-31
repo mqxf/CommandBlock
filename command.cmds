@@ -1,0 +1,3 @@
+summon falling_block ~ ~2 ~2 {BlockState:{Name:"command_block",Properties:{facing:"south"}},TileEntityData:{Command:"say 1"},Time:1}
+summon falling_block ~ ~2 ~3 {BlockState:{Name:"chain_command_block",Properties:{facing:"south"}},TileEntityData:{Command:"say 2"},Time:1}
+summon falling_block ~ ~2 ~4 {BlockState:{Name:"chain_command_block",Properties:{facing:"south"}},TileEntityData:{Command:"say 3"},Time:1}
