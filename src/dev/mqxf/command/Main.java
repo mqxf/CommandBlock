@@ -1,5 +1,7 @@
 package dev.mqxf.command;
 
+import java.nio.CharBuffer;
+import java.util.Formatter;
 import java.util.Scanner;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
@@ -7,7 +9,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
-class Main {
+public class Main {
 
     final static String ending = "]}";
     final static String passengerP1 = "{id:command_block_minecart,Command:'";
@@ -65,11 +67,10 @@ class Main {
         type = c.equalsIgnoreCase("R") ? "repeating_command_block" : (c.equalsIgnoreCase("C") ? "chain_command_block" : "command_block");
         System.out.println("Type the direction you want the command block to be facing.");
         facing = scanner.nextLine();
-        System.out.println("Finally type the command from the command block, all on one line. All the '\"' and '\\\"' will be incremented accordingly. No further support than '\\\\\\\"'");
+        System.out.println("Finally type the command from the command block, all on one line. All the '\"' and '\\\"' will be incremented accordingly.");
         command = scanner.nextLine();
-        command.replaceAll("\\\\\\\"", "\\\\\\\\\\\\\\\"");
-        command.replaceAll("\\\"", "\\\\\\\"");
-        command.replaceAll("\"", "\\\"");
+        command = command.replaceAll("\\\\", "\\\\\\\\");
+        command = command.replaceAll("\"", "\\\\\"");
         System.out.println("");
         System.out.println(String.format(fullCommand, x, y, z, type, facing, command));
     }
